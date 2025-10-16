@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multicloud DevOps Registration</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #020024, #090979, #00d4ff, #0072ff);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      width: 45%;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    h1 {
+      color: #f5c518;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(45deg, #ff6a00, #ee0979);
+      color: white;
+      cursor: pointer;
+      margin-top: 15px;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(45deg, #00b09b, #96c93d);
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      text-align: center;
+      color: #00ff88;
+      font-size: 18px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00ffcc; }
+      to { text-shadow: 0 0 25px #00ffaa; }
+    }
+
+    .icon {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      opacity: 0.8;
+      z-index: 2;
+      transition: transform 0.2s;
+    }
+  </style>
+</head>
+<body>
+  <form method="POST" action="https://z8ylilwifg.execute-api.us-east-1.amazonaws.com/dev">
+    <h1>Multicloud DevOps Registration</h1>
+
+    <label for="fname">First Name:</label>
+    <input type="text" id="fname" name="fname" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <footer>✨ Multicloud with DevOps by Dibyajyoti ✨</footer>
+
+  <script>
+    // Floating DevOps icons
+    const iconSources = [
+      'https://cdn.hashnode.com/res/hashnode/image/upload/v1642773221418/7A9XnkEAEb.png', // Docker
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo_without_workmark.svg/1200px-Kubernetes_logo_without_workmark.svg.png', // Kubernetes
+      'https://www.pax8.com/en-us/wp-content/uploads/sites/4/2024/06/pax8-logo-aws.png',   // AWS
+      'https://cdn-icons-png.flaticon.com/512/873/873107.png',   // Azure
+      'https://assets.techrepublic.com/uploads/2021/08/tux-new.jpg'  // Linux
+    ];
+
+    const icons = [];
+    iconSources.forEach(src => {
+      const img = new Image();
+      img.src = src;
+      img.classList.add('icon');
+      document.body.appendChild(img);
+      icons.push({
+        el: img,
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        dx: (Math.random() - 0.5) * 1.2,
+        dy: (Math.random() - 0.5) * 1.2,
+      });
+    });
+
+    function animateIcons() {
+      icons.forEach(i => {
+        i.x += i.dx;
+        i.y += i.dy;
+        if (i.x <= 0 || i.x >= window.innerWidth - 60) i.dx *= -1;
+        if (i.y <= 0 || i.y >= window.innerHeight - 60) i.dy *= -1;
+        i.el.style.transform = `translate(${i.x}px, ${i.y}px)`;
+      });
+      requestAnimationFrame(animateIcons);
+    }
+    animateIcons();
+  </script>
+</body>
+</html>
