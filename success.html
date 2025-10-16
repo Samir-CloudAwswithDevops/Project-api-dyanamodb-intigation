@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration Success</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(45deg, #00b09b, #96c93d);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .success-box {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease-in-out;
+      position: relative;
+      z-index: 5;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      color: #f9f871;
+      text-shadow: 2px 2px 8px black;
+    }
+
+    p {
+      font-size: 20px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="success-box">
+    <h1>🎉 Registration Successful! 🎉</h1>
+    <p>Thank you for registering with Multicloud DevOps.</p>
+    <p>Good Night 🌙</p>
+  </div>
+</body>
+</html>
