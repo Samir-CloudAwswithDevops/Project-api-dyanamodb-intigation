@@ -1,0 +1,129 @@
+Project Process Document
+
+Project Name: Multicloud DevOps Registration Form
+Repository: GitHub Link
+
+Author: Samir Gouda
+Date: 2025-10-13
+
+1. Project Overview
+
+This project is a web-based registration form that collects user information (name, email) and stores it in AWS DynamoDB via an AWS Lambda API.
+The frontend is fully animated with floating DevOps-related icons and gradient backgrounds, providing an interactive user experience.
+
+Key Features:
+
+Animated gradient background and floating icons.
+
+Responsive registration form (Name, Email).
+
+AWS Lambda backend for handling GET and POST requests.
+
+DynamoDB integration for data storage.
+
+Success page confirming registration.
+
+Fully hosted on GitHub (frontend code) and AWS (API & database).
+
+2. Project Structure
+multicloud-devops/
+├─ index.html          # Main registration form
+├─ success.html        # Success page after form submission
+├─ style.css           # Optional separate CSS (if used)
+├─ lambda_function.py  # AWS Lambda backend code
+├─ README.md           # Project documentation
+└─ assets/             # Images and icon files
+
+3. Tools & Technologies
+Layer	Technology
+Frontend	HTML, CSS, JavaScript
+Backend	AWS Lambda (Python 3.13)
+Database	AWS DynamoDB
+Hosting	GitHub for code, AWS API Gateway for backend
+DevOps Concepts	CI/CD, Serverless Architecture
+4. Development Process
+Step 1: Create Frontend
+
+Designed index.html with animated gradient background.
+
+Added floating DevOps icons (AWS, Docker, Kubernetes, Jenkins, Azure, Linux).
+
+Created success.html to show confirmation after registration.
+
+Implemented JavaScript for:
+
+Floating icons animation.
+
+Form submission handling and local storage of user name.
+
+Redirect to success.html on successful submission.
+
+Step 2: Setup AWS Lambda
+
+Created a Lambda function in Python 3.13.
+
+Wrote lambda_function.py to handle:
+
+GET requests → return index.html.
+
+POST requests → insert form data into DynamoDB and return success.html.
+
+Used Boto3 library to integrate Lambda with DynamoDB.
+
+Step 3: Configure DynamoDB
+
+Created table dibya in DynamoDB.
+
+Columns: username (string), email (string).
+
+Enabled necessary IAM permissions for Lambda to access DynamoDB.
+
+Step 4: Connect API Gateway
+
+Created REST API in AWS API Gateway.
+
+Configured endpoints:
+
+GET → Lambda (returns index.html)
+
+POST → Lambda (stores data and returns success.html)
+
+Tested endpoint:
+
+https://<your-api-id>.execute-api.us-east-1.amazonaws.com/dev
+
+Step 5: GitHub Setup
+
+Initialized local repository:
+
+git init
+git add .
+git commit -m "Initial commit"
+
+
+Created GitHub repository: project-api-lambda-dynamodb-intigration
+
+Pushed code to GitHub:
+
+git remote add origin https://github.com/Dibyaprivate/project-api-lambda-dynamodb-intigration.git
+git push -u origin master
+
+Step 6: Testing
+
+Opened the API endpoint in browser → GET request returned index.html.
+
+Filled the form → POST request inserted data into DynamoDB.
+
+Success page displayed with user name.
+
+Verified stored data in DynamoDB.
+
+5. Future Improvements
+
+Add email validation before submission.
+
+Implement serverless CI/CD pipeline for automatic deployment.
+
+Add more DevOps tools animations.
+
+Implement HTTPS & CORS properly for security.
